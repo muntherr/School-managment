@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AddInstructorScreen extends StatelessWidget {
-  const AddInstructorScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

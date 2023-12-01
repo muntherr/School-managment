@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
         title: Text('School Management System'),
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/school_background.jpg"),
             fit: BoxFit.cover,
