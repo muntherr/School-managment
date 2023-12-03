@@ -11,33 +11,29 @@ class instructorModel{
     this.id = "",
     this.firstName = "",
     this.lastName = "",
-    this.department = "",
-    this.phoneNumber = 0,
-    this.courses = const [],
+    this.phoneNumber = "",
+    this.courses = "",
   });
 
   String id;
   String firstName;
   String lastName;
-  String department;
-  int phoneNumber;
-  List<String> courses;
+  String phoneNumber;
+  String courses;
 
   factory instructorModel.fromJson(Map<String, dynamic> json) => instructorModel(
     id: json["_id"],
     firstName: json["firstName"],
     lastName: json["lastName"],
-    department: json["department"],
     phoneNumber: json["phoneNumber"],
-    courses: List<String>.from(json["courses"].map((x) => x)),
+    courses: json["courses"],
   );
 
   Map<String, dynamic> toJson() => {
     "_id": id,
     "firstName": firstName,
     "lastName": lastName,
-    "department": department,
     "phoneNumber": phoneNumber,
-    "courses": List<dynamic>.from(courses.map((x) => x)),
+    "courses": courses,
   };
 }

@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AddInstructorScreen()),
+                          builder: (context) => instructor_Screen()),
                     );
                   },
                   child: Text('Add Instructor'),
@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AddCourseScreen()),
+                          builder: (context) => courseScreen()),
                     );
                   },
                   child: Text('Add Course'),
