@@ -1,45 +1,46 @@
 import 'dart:convert';
 
-
 List<studentModel> userFromJson(String str) =>
     List<studentModel>.from(json.decode(str).map((x) => studentModel.fromJson(x)));
 String userToJson(List<studentModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class studentModel {
-  studentModel(
-      {this.id = "",
-        this.firstName = "",
-        this.lastName = "",
-        this.email = "",
-        this.phoneNumber = 0,
-        this.gender ='',
-        this.age= 0
-      });
   String id;
   String firstName;
   String lastName;
   String email;
+  String phoneNumber;
+  String age;
   String gender;
-  int phoneNumber;
-  int age;
+
+  studentModel({
+    this.id = "",
+    this.firstName = "",
+    this.lastName = "",
+    this.email = "",
+    this.phoneNumber = "",
+    this.age = "",
+    this.gender = "",
+  });
 
   factory studentModel.fromJson(Map<String, dynamic> json) => studentModel(
-      id: json["_id"],
-      firstName: json["firstName"],
-      lastName: json["lastName"],
-      email: json["email"],
-      gender: json["gender"],
-      age: json["age"]
-
+    id: json["_id"],
+    firstName: json["firstName"],
+    lastName: json["lastName"],
+    email: json["email"],
+    phoneNumber: json["phoneNumber"],
+    age: json["age"],
+    gender: json["gender"],
   );
+
   Map<String, dynamic> toJson() => {
     "_id": id,
     "firstName": firstName,
     "lastName": lastName,
     "email": email,
+    "phoneNumber": phoneNumber,
+    "age": age,
     "gender": gender,
-    "phoneNumber": gender,
-    "age": age
   };
 }
