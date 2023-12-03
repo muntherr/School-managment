@@ -124,7 +124,7 @@ def delete_instructor(passed_id):
     # delete from instructor collection
     instructor_collection = pymongo.collection.Collection(configurations.db, 'instructors')
     instructor_collection.delete_one({'_id': passed_id})
-    # delete from patient collection
+    # delete from instructors collection
     registration_collection = pymongo.collection.Collection(configurations.db, 'registration')
     registration_collection.delete_one({'instructorId': passed_id})
     return "deleted"
@@ -192,7 +192,7 @@ def delete_student(passed_id):
     # delete from user collection
     student_collection = pymongo.collection.Collection(configurations.db, 'students')
     student_collection.delete_one({'_id': passed_id})
-    # delete from patient collection
+    # delete from student collection
     registration_collection = pymongo.collection.Collection(configurations.db, 'registration')
     registration_collection.delete_one({'studentId': passed_id})
     return "deleted"
