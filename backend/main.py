@@ -1,4 +1,4 @@
-from bson import ObjectId
+import flask
 import configurations
 import pymongo
 from flask import *
@@ -106,6 +106,28 @@ def find_student(search_param):
         # Handle errors
         return jsonify({"error": str(e)}), 500
 
+
+# This API will delete a student based on its id
+@app.route("/delete_student/<passed_id>", methods=['DELETE'])
+def delete_patient(passed_id):
+    # delete from user collection
+    user_collection = pymongo.collection.Collection(configurations.db, 'students')
+    user_collection.delete_one({'_id': passed_id})
+    # delete from patient collection
+    patient_collection = pymongo.collection.Collection(configurations.db, 'registration')
+    patient_collection.delete_one({'studentId': passed_id})
+    return "deleted"
+
+# This API will update patient's data based on patient id
+@app.route("/update_student/<passed_id>", methods=['PATCH'])
+def update_student(passed_id):
+    patient_collection = pymongo.collection.Collection(configurations.db, 'students')
+    patientId = passed_id
+    updated_doc = patient_collection.update_one({"_id": patientId}, {"$set": request.get_json()})
+    if updated_doc:
+        return "updated"
+    else:
+        flask.abort(404, "Patient Not Found")
 
 
 if __name__ == "__main__":

@@ -6,10 +6,10 @@ from pydantic.main import BaseModel
 
 class Course(BaseModel):
     id: str = Field(None, alias="_id")
-    courseName: str  # Added type annotation
-    instructor: str  # Added type annotation
-    startDate: datetime  # Added type annotation
-    endDate: datetime  # Added type annotation
+    courseName: str  
+    instructor: str  
+    startDate: datetime  
+    endDate: datetime  
 
     def to_json(self):
         return jsonable_encoder(self, exclude_none=True)

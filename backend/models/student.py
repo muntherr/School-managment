@@ -8,8 +8,9 @@ class Students(BaseModel):
     firstName: str  
     lastName: str  
     email: str  
-    dateOfBirth: datetime
-    phoneNumber: int
+    phoneNumber: str
+    age: str
+    gender: str
 
     def to_json(self):
         return jsonable_encoder(self, exclude_none=True)
@@ -17,6 +18,6 @@ class Students(BaseModel):
     def to_bson(self):
         data = self.model_dump(by_alias=True, exclude_none=True)
         if data["id"] is None:
-            data.pop("id")
+            data.pop("id") 
         return data
     
